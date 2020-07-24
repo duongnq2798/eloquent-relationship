@@ -46,4 +46,34 @@ class User extends Authenticatable
     {
         return $this->hasOne(Expreience::class);
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'person_id');
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class);
+    }
+
+
+
+    /** One to Many
+     * A user can have many posts
+     * a post can have many comments
+     * a project can have many tasks
+     * A user can have many jobs
+     * A user can have many achievements
+     */
 }
