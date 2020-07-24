@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class User extends Authenticatable
 {
@@ -40,6 +39,11 @@ class User extends Authenticatable
 
     public function profile()
     {
-        $this->hasOne(Profile::class);
+        return $this->hasOne(Profile::class);
+    }
+
+    public function experience()
+    {
+        return $this->hasOne(Expreience::class);
     }
 }
